@@ -2,6 +2,8 @@
 
 A powerful web-based clipboard utility that supports Base64 encode/decode, URL encoding, case transformations, and instant copy functionality.
 
+![Clipboard Utility Suite](preview.jpg)
+
 ## ✨ Features
 
 - **Base64 Operations**
