@@ -121,7 +121,8 @@ function toCamelCase() {
     }
     const camelCase = text
         .toLowerCase()
-        .replace(/[^a-zA-Z0-9]+(.)/g, (match, char) => char.toUpperCase());
+        .replace(/[^a-zA-Z0-9]+(.)/g, (match, char) => char.toUpperCase())
+        .replace(/^[A-Z]/, char => char.toLowerCase());
     inputText.value = camelCase;
     showStatus('✓ Converted to camelCase');
 }
@@ -204,13 +205,13 @@ window.addEventListener('load', () => {
 
 // Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
-    // Ctrl+Shift+C to copy
-    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+    // Ctrl+Alt+C to copy
+    if (e.ctrlKey && e.altKey && e.key === 'c') {
         e.preventDefault();
         copyToClipboard();
     }
-    // Ctrl+Shift+V to paste
-    if (e.ctrlKey && e.shiftKey && e.key === 'V') {
+    // Ctrl+Alt+V to paste
+    if (e.ctrlKey && e.altKey && e.key === 'v') {
         e.preventDefault();
         pasteFromClipboard();
     }

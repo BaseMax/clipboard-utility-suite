@@ -26,8 +26,8 @@ A powerful web-based clipboard utility that supports Base64 encode/decode, URL e
   - Clear text
   
 - **Keyboard Shortcuts**
-  - `Ctrl+Shift+C` - Copy to clipboard
-  - `Ctrl+Shift+V` - Paste from clipboard
+  - `Ctrl+Alt+C` - Copy to clipboard
+  - `Ctrl+Alt+V` - Paste from clipboard
 
 ## 🚀 Usage
 
