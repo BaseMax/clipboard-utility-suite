@@ -20,7 +20,10 @@ function base64Encode() {
         return;
     }
     try {
-        const encoded = btoa(unescape(encodeURIComponent(text)));
+        // Convert string to UTF-8 bytes and then to Base64
+        const utf8Bytes = new TextEncoder().encode(text);
+        const binaryString = Array.from(utf8Bytes, byte => String.fromCharCode(byte)).join('');
+        const encoded = btoa(binaryString);
         inputText.value = encoded;
         showStatus('✓ Encoded to Base64');
     } catch (error) {
@@ -36,7 +39,10 @@ function base64Decode() {
         return;
     }
     try {
-        const decoded = decodeURIComponent(escape(atob(text)));
+        // Decode Base64 to binary string, then convert to UTF-8
+        const binaryString = atob(text);
+        const bytes = Uint8Array.from(binaryString, char => char.charCodeAt(0));
+        const decoded = new TextDecoder().decode(bytes);
         inputText.value = decoded;
         showStatus('✓ Decoded from Base64');
     } catch (error) {
@@ -165,10 +171,10 @@ async function copyToClipboard() {
         await navigator.clipboard.writeText(text);
         showStatus('✓ Copied to clipboard!');
     } catch (error) {
-        // Fallback for older browsers
+        // Fallback: manually select and prompt user
         inputText.select();
-        document.execCommand('copy');
-        showStatus('✓ Copied to clipboard!');
+        inputText.setSelectionRange(0, 99999); // For mobile devices
+        showStatus('Text selected. Press Ctrl+C to copy', 'error');
     }
 }
 
