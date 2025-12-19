@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipboard Utility Suite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Clipboard Utility Suite</h1>
+            <p>Encode, decode, and transform your text instantly</p>
+        </header>
+
+        <main>
+            <div class="textarea-container">
+                <textarea id="inputText" placeholder="Paste or type your text here..."></textarea>
+            </div>
+
+            <div class="button-grid">
+                <!-- Base64 Operations -->
+                <div class="section">
+                    <h3>Base64</h3>
+                    <button class="btn btn-primary" onclick="base64Encode()">Encode to Base64</button>
+                    <button class="btn btn-secondary" onclick="base64Decode()">Decode from Base64</button>
+                </div>
+
+                <!-- URL Operations -->
+                <div class="section">
+                    <h3>URL Encoding</h3>
+                    <button class="btn btn-primary" onclick="urlEncode()">URL Encode</button>
+                    <button class="btn btn-secondary" onclick="urlDecode()">URL Decode</button>
+                </div>
+
+                <!-- Case Transforms -->
+                <div class="section">
+                    <h3>Case Transforms</h3>
+                    <button class="btn btn-case" onclick="toUpperCase()">UPPERCASE</button>
+                    <button class="btn btn-case" onclick="toLowerCase()">lowercase</button>
+                    <button class="btn btn-case" onclick="toTitleCase()">Title Case</button>
+                    <button class="btn btn-case" onclick="toCamelCase()">camelCase</button>
+                    <button class="btn btn-case" onclick="toSnakeCase()">snake_case</button>
+                    <button class="btn btn-case" onclick="toKebabCase()">kebab-case</button>
+                </div>
+
+                <!-- Clipboard Operations -->
+                <div class="section">
+                    <h3>Clipboard</h3>
+                    <button class="btn btn-copy" onclick="copyToClipboard()">📋 Copy Result</button>
+                    <button class="btn btn-paste" onclick="pasteFromClipboard()">📄 Paste from Clipboard</button>
+                    <button class="btn btn-clear" onclick="clearText()">🗑️ Clear</button>
+                </div>
+            </div>
+
+            <div class="status" id="status"></div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ | <a href="https://github.com/BaseMax/clipboard-utility-suite" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
