@@ -135,10 +135,11 @@ function toSnakeCase() {
     }
     const snakeCase = text
         .replace(/\s+/g, '_')
-        .replace(/([A-Z])/g, '_$1')
+        .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
         .toLowerCase()
-        .replace(/^_/, '')
-        .replace(/_+/g, '_');
+        .replace(/[^a-z0-9_]/g, '_')
+        .replace(/_+/g, '_')
+        .replace(/^_|_$/g, '');
     inputText.value = snakeCase;
     showStatus('✓ Converted to snake_case');
 }
@@ -152,10 +153,11 @@ function toKebabCase() {
     }
     const kebabCase = text
         .replace(/\s+/g, '-')
-        .replace(/([A-Z])/g, '-$1')
+        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
         .toLowerCase()
-        .replace(/^-/, '')
-        .replace(/-+/g, '-');
+        .replace(/[^a-z0-9-]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
     inputText.value = kebabCase;
     showStatus('✓ Converted to kebab-case');
 }
